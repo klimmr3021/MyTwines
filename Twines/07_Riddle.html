@@ -1,0 +1,44 @@
+<tw-storydata name="07_Riddle" startnode="1" creator="Twine" creator-version="2.0.11" ifid="EFC9C7C4-49ED-4184-A3A5-3C7176945683" format="SugarCube 2 (local/offline)" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">/*! <<cyclinglink>> macro for SugarCube 2.x */
+!function(){"use strict";if("undefined"==typeof version||"undefined"==typeof version.title||"SugarCube"!==version.title||"undefined"==typeof version.major||version.major<2)throw new Error("<<cyclinglink>> macro requires SugarCube 2.0 or greater, aborting load");version.extensions.cyclinglinkMacro={major:3,minor:3,revision:2},macros.cyclinglink={handler:function(a,b,c){function toggleText(w){w.classList.remove("cyclingLinkInit"),w.classList.toggle(rl+"Enabled"),w.classList.toggle(rl+"Disabled"),w.style.display="none"===w.style.display?"inline":"none"}var rl="cyclingLink";switch(c[c.length-1]){case"end":var end=!0;c.pop();break;case"out":var out=!0;c.pop()}var v=null;c.length&&"$"===c[0][0]&&(v=c[0].slice(1),c.shift());var h=State.variables;if(!out||!v||""!==h[v]){var l=insertElement(a,"a");l.className="link-internal cyclingLink",l.setAttribute("data-cycle",0);for(var i=0;i<c.length;i++){var on=i===(v?Math.max(c.indexOf(h[v]),0):0),d=insertElement(null,"span",null,"cyclingLinkInit cyclingLink"+(on?"En":"Dis")+"abled");on?(v&&(h[v]=c[i]),l.setAttribute("data-cycle",i)):d.style.display="none",insertText(d,c[i]),on&&end&&i===c.length-1?l.parentNode.replaceChild(d,l):l.appendChild(d)}jQuery(l).ariaClick(function(){var t=this.childNodes,u=this.getAttribute("data-cycle")-0,m=t.length;if(toggleText(t[u]),u+=1,out&&u===m?v&&(h[v]=""):(u%=m,v&&(h[v]=c[u])),(end||out)&&u===m-(end?1:0)){if(!end)return void this.parentNode.removeChild(this);var n=this.removeChild(t[u]);return n.className=rl+"End",n.style.display="inline",void this.parentNode.replaceChild(n,this)}toggleText(t[u]),this.setAttribute("data-cycle",u)})}}}}();
+</script><tw-passagedata pid="1" name="Cycling" tags="" position="502,278">You see a suitcase lock in front of you. What is the combination?
+
+&lt;&lt;cyclinglink &quot;$dial1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot;&gt;&gt;
+&lt;&lt;cyclinglink &quot;$dial2&quot; &quot;mute&quot; &quot;blind&quot; &quot;deaf&quot; &quot;paralyzed&quot;&gt;&gt;
+&lt;&lt;cyclinglink &quot;$dial3&quot; &quot;mice&quot; &quot;dogs&quot; &quot;cats&quot; &quot;fish&quot;&gt;&gt;
+
+[[Open it!-&gt;Open]]</tw-passagedata>
+<tw-passagedata pid="2" name="Open" tags="" position="502,427">$dial1 ... $dial2 ... $dial3
+
+&lt;&lt;if $dial1 == &quot;3&quot; &amp;&amp; $dial2 == &quot;blind&quot; &amp;&amp; $dial3 == &quot;mice&quot;&gt;&gt;
+	You opened the lock. Unfortunately, the suitcase just contains a smaller, locked suitcase.
+	[[Look at the smaller suitcase.-&gt;Smaller Suitcase]]
+	&lt;&lt;else&gt;&gt;
+		Hmm &quot;$dial1 $dial2 $dial3&quot; doesn&#39;t quite sound right. Nothing happened.
+		[[Back-&gt;Cycling]]
+&lt;&lt;/if&gt;&gt;
+
+
+
+&lt;!--
+	1. Create another cycling link riddle.
+	2. Upload your Twine to GitHub and share a link in #sharing
+	
+--&gt;</tw-passagedata>
+<tw-passagedata pid="3" name="Smaller Suitcase" tags="" position="502,577">You see a smaller suitcase lock in front of you. What is the combination?
+
+&lt;&lt;cyclinglink &quot;$dial1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot;&gt;&gt;
+&lt;&lt;cyclinglink &quot;$dial2&quot; &quot;paper&quot; &quot;plastic&quot; &quot;plywood&quot; &quot;particle board&quot;&gt;&gt;
+&lt;&lt;cyclinglink &quot;$dial3&quot; &quot;bottles&quot; &quot;bags&quot; &quot;bases&quot; &quot;boards&quot;&gt;&gt;
+
+[[Open it!-&gt;Open Again]]</tw-passagedata>
+<tw-passagedata pid="4" name="Open Again" tags="" position="503,727">$dial1 ... $dial2 ... $dial3
+
+&lt;&lt;if $dial1 == &quot;4&quot; &amp;&amp; $dial2 == &quot;plastic&quot; &amp;&amp; $dial3 == &quot;bottles&quot;&gt;&gt;
+	You opened the lock. You find a key. Congratulations!
+	&lt;&lt;else&gt;&gt;
+		Hmm &quot;$dial1 $dial2 $dial3&quot; doesn&#39;t quite sound right. Nothing happened.
+		[[Back-&gt;Smaller Suitcase]]
+&lt;&lt;/if&gt;&gt;
+</tw-passagedata>
+</tw-storydata>
